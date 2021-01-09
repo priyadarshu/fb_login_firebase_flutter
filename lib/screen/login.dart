@@ -20,7 +20,7 @@ class _LoginState extends State<Login> {
   @override
   void initState() {
     var authBloc = Provider.of<AuthBloc>(context, listen: false);
-    authBloc.currentUser.listen((fbUser) {
+    loginStateSubscription = authBloc.currentUser.listen((fbUser) {
       if (fbUser != null) {
         Navigator.of(context).pushReplacement(
           MaterialPageRoute(
